@@ -1,3 +1,4 @@
+import { NumberCollection } from './NumberCollection';
 import { Sorter } from './sorter'
 import './style.css'
 
@@ -6,11 +7,11 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   GO
   </div>
 `
-const numberSorted = new Sorter([100,34,5,59,4,23]);
-const stringSorted = new Sorter('LukeIAmYourFather');
+const numData = new NumberCollection([100,34,5,59,4,23])
+const numberSorted = new Sorter(numData)
 const nums = numberSorted.sortCollection()
-const sortStrs = stringSorted.sortCollection()
 console.log(numberSorted.collection)
-console.log(stringSorted.collection)
 
+// const stringSorted = new Sorter('LukeIAmYourFather');
+// console.log(stringSorted.collection)
 // setupCounter(document.querySelector<HTMLButtonElement>('#counter')!)

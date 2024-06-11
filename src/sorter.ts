@@ -1,38 +1,30 @@
+import { NumberCollection } from './NumberCollection'
+
+export interface Sortable {
+    length: number
+    compare(a:number, b:number): boolean
+    swap(a:number, b:number): void
+}
+
 export class Sorter {
 
-    collection: number[] | string
+    collection: Sortable
 
-    constructor(collection: number[] | string) {
+    constructor(collection: Sortable) {
         this.collection = collection
     }
 
     sortCollection():void {
         const length = this.collection.length
-        if (this.collection instanceof Array) {
-            for (let i = 0; i < length; i++) {
-                for (let j = 0; j < length - i - 1; j++) {
-                    if (this.collection[j] > this.collection[j+1]) {
-                        let temp = this.collection[j]
-                        this.collection[j] = this.collection[j+1]
-                        this.collection[j+1] = temp
-                    }
+        for (let i = 0; i < length; i++) {
+            for (let j = 0; j < length - i - 1; j++) {
+                if (this.collection.compare(j, j+1)) {
+                    this.collection.swap(j, j+1)
                 }
             }
         }
-        if (typeof this.collection === "string") {
-            this.collection.split('')
-            for (let i = 0; i < length; i++) {
-                for (let j = 0; j < length - i - 1; j++) {
-                    if (this.collection[j] > this.collection[j+1]) {
-                        let temp = this.collection[j]
-                        this.collection[j] = this.collection[j+1]
-                        this.collection[j+1] = temp
-                    }
-                }
-            }
-        }
+        console.log(this.collection)
     }
-    
 }
 
 /* Note for future. If you are doing a union with numbers and strings you wil come across this typescript error
