@@ -1,7 +1,14 @@
+export class Sorter {
 
+    collection: number[]
 
-export const sorter = (items: number[]) => {
-    const sortedItems = items.sort((a: number, b:number) => b - a ? a : b)
-    console.log(sortedItems)
-    return sortedItems
+    constructor(collection: number[]) {
+        this.collection = collection
+    }
+
+    sortCollection() {
+        const sorted = this.collection.sort((a: number, b:number) => a - b)
+        console.log(sorted)
+        return sorted
+    }
 }

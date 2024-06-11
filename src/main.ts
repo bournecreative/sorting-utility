@@ -1,4 +1,4 @@
-import { sorter } from './sorter'
+import { Sorter } from './sorter'
 import './style.css'
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
@@ -6,5 +6,8 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   GO
   </div>
 `
-sorter([1,4,5])
+
+const numberSorted = new Sorter([100,34,5,59,4,23]);
+numberSorted.sortCollection()
+
 // setupCounter(document.querySelector<HTMLButtonElement>('#counter')!)
